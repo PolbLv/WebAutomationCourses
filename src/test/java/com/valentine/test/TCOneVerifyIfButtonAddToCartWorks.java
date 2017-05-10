@@ -38,7 +38,7 @@ public class TCOneVerifyIfButtonAddToCartWorks {
 
         System.out.println("Expected Name " + expectedName + "\nActualName " + actualName);
 
-        Assert.assertEquals("Name don't match", expectedName, actualName);
+        Assert.assertEquals(expectedName, actualName, "Name don't match");
 
         String actualPrice = driver.findElement(By.cssSelector("[id='fancybox-content'] form span")).getText();
 
@@ -46,7 +46,7 @@ public class TCOneVerifyIfButtonAddToCartWorks {
 
         System.out.println("Expected Price " + expectedPrice + "\nActual price " + actualPrice);
 
-        Assert.assertEquals("Price don't match", expectedPrice, actualPrice);
+        Assert.assertEquals(expectedPrice, actualPrice, "Price don't match");
 
         driver.findElement(By.cssSelector("[id='fancybox-content'] form [type='submit']")).click();
 

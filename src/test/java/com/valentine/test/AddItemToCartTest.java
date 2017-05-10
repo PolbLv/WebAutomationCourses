@@ -9,45 +9,45 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class AddItemToCartTest {
-	private WebDriver driver;
+    private WebDriver driver;
 
-	@Test
-	public void testTheAddCartButtonOpensPopup() {
-		System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
-		driver = new ChromeDriver();
-		driver.get("http://awful-valentine.com/");
+    @Test
+    public void testTheAddCartButtonOpensPopup() {
+        System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
+        driver = new ChromeDriver();
+        driver.get("http://awful-valentine.com/");
 
-		driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
-		WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+        driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
+        WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
 
-		Assert.assertTrue(addToCartPopup.isDisplayed(), "'Add to cart' Popup did not appear.");
+        Assert.assertTrue(addToCartPopup.isDisplayed(), "'Add to cart' Popup did not appear.");
 
-		waitFor(1000);
-		WebElement title = driver.findElement(By.cssSelector("#et-offer-post-30 .et_popup_title"));
-		Assert.assertEquals(title.getText(), "Closeness and Togetherness", "Incorrect product title");
-	}
+        waitFor(1000);
+        WebElement title = driver.findElement(By.cssSelector("#et-offer-post-30 .et_popup_title"));
+        Assert.assertEquals(title.getText(), "Closeness and Togetherness", "Incorrect product title");
+    }
 
-	@Test(dependsOnMethods = "testTheAddCartButtonOpensPopup")
-	public void testAddToCartButtonOnPopupRedirectsToCartPage() {
-		waitFor(3000);
-		driver.findElement(By.id("addToCart_6_2")).click();
+    @Test(dependsOnMethods = "testTheAddCartButtonOpensPopup")
+    public void testAddToCartButtonOnPopupRedirectsToCartPage() {
+        waitFor(3000);
+        driver.findElement(By.id("addToCart_6_2")).click();
 
-		Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-				"Incorrect URL after click on 'Add to Cart' button");
-	}
+        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
+                "Incorrect URL after click on 'Add to Cart' button");
+    }
 
-	@AfterClass
-	public void tearDown() {
-		driver.close();
-	}
+    @AfterClass
+    public void tearDown() {
+        driver.close();
+    }
 
-	private void waitFor(int milliseconds) {
-		try {
-			Thread.sleep(milliseconds);
-		} catch (Exception e) {
+    private void waitFor(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (Exception e) {
 
-		}
-	}
+        }
+    }
 }
 
 
