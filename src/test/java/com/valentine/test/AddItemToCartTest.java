@@ -45,7 +45,7 @@ public class AddItemToCartTest {
 		try {
 			Thread.sleep(milliseconds);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 	}
 }
