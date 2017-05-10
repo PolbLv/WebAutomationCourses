@@ -13,7 +13,7 @@ public class AddItemToCartTest {
 
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
-		System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
+		System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
 		driver = new ChromeDriver();
 		driver.get("http://awful-valentine.com/");
 
