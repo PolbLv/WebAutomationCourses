@@ -16,7 +16,7 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
     private WebDriver driver;
 
     @Test
-    public void testTheClickableButtonMoreInfo(){
+    public void testAddToCartSecondItem (){
         System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
         driver = new ChromeDriver();
         driver.get(homePage);
@@ -30,22 +30,33 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
         driver.findElement(By.cssSelector("[href='#et-offer-post-27']")).click();
         WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
 
-        waitFor(1000);
         String actualName = driver.findElement(By.cssSelector("#et-offer-post-27 > div > h2")).getText();
         actualName.substring(actualName.indexOf(""));
         Assert.assertEquals(expectedName, actualName, "Name don't match");
 
         String actualPrice = driver.findElement(By.cssSelector("[id='fancybox-content'] form span")).getText();
         actualPrice = actualPrice.substring(actualPrice.indexOf("$") + 1).trim();
-
         //System.out.println("Expected Price " + expectedPrice + "\nActual price " + actualPrice);
-
         Assert.assertEquals(expectedPrice, actualPrice, "Price don't match");
 
     }
+    @Test(dependsOnMethods = "testAddToCartSecondItem")
+    public void afterPopupOpensCartPage() {
+        waitFor(3000);
 
-    @Test(dependsOnMethods = "testTheClickableButtonMoreInfo")
-    public void testAddToCartButtonOnPopupRedirectsToCartPage() {
+
+    }
+
+    @Test(dependsOnMethods = "afterPopupOpensCartPage")
+    public void testContinueShopping() {
+
+        waitFor(1000);
+        driver.findElement(By.cssSelector(".Cart66CartContinueShopping")).click();
+        Assert.assertEquals(driver.getCurrentUrl(), homePage, "Redirect to incorrect page.");
+    }
+
+    @Test(dependsOnMethods = "afterPopupOpensCartPage")
+    public void CartPage() {
         waitFor(3000);
         driver.findElement(By.id("addToCart_5_2")).click();
 
@@ -53,7 +64,7 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
                 "Incorrect URL after click on 'Add to Cart' button");
     }
 
-    @AfterClass
+    @AfterClass (dependsOnMethods = "CartPage")
     public void tearDown() {
         driver.close();
     }
