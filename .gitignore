@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .classpath
 .project
 .settings
@@ -9,3 +10,9 @@ chromedriver.exe
 chromedriver
 geckodriver.exe
 geckodriver
+=======
+/target/
+/test-output/
+.settings
+.settings/
+>>>>>>> origin/master

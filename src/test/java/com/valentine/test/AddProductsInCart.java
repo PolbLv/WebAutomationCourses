@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 package com.valentine.test;
 
+=======
+
+package com.valentine.test;
+
+
+>>>>>>> origin/master
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -126,4 +133,9 @@ public class AddProductsInCart {
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> origin/master

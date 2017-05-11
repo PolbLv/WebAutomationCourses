@@ -12,7 +12,10 @@ import org.testng.annotations.Test;
 public class AddItemToCartTest {
 	private WebDriver driver;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 	@Test
 	public void testTheAddCartButtonOpensPopup() {
 		System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
