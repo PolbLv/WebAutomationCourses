@@ -1,10 +1,10 @@
 package com.valentine.test;
 
-import com.valentine.tools.Browser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +16,9 @@ public class ContinueShoppingFromYourCartTest {
 
 	@BeforeClass
 	public void setup() {
-		driver = Browser.open();
+		System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
+		driver = new ChromeDriver();
+		// /driver = Browser.open();
 		driver.get("http://awful-valentine.com/");
 
 		// AwfulValentine.openHomePage();
