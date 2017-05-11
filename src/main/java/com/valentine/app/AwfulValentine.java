@@ -1,8 +1,7 @@
 package com.valentine.app;
 
-import org.openqa.selenium.WebDriver;
-
 import com.valentine.tools.Browser;
+import org.openqa.selenium.WebDriver;
 
 public class AwfulValentine {
 
