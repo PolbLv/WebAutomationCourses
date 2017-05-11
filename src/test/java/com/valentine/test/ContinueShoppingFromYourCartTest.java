@@ -66,7 +66,7 @@ public class ContinueShoppingFromYourCartTest {
 		try {
 			Thread.sleep(milliseconds);
 		} catch (Exception e) {
-			// TODO: handle exception
+
 		}
 	}
 
