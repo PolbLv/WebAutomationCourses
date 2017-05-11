@@ -13,21 +13,22 @@ import org.testng.annotations.Test;
 public class SecondTCVerifyIfButtonAddCartAddAllItems {
 
     String homePage = "http://awful-valentine.com/";
+    String expectedPrice;
+    String expectedName;
+
     private WebDriver driver;
     private WebDriverWait wait;
-
-
 
     @Test
     public void testAddToCartSecondItem() {
         System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 5000);
+        wait = new WebDriverWait(driver, 8);
         driver.get(homePage);
 
-        String expectedPrice = driver.findElement(By.cssSelector(".special-item [href*='old-together'] img+span")).getText();
-        String expectedName = driver.findElement(By.cssSelector("#special-items > div:nth-child(2) > h4 > a")).getText();
-        expectedName.substring(expectedName.indexOf(""));
+        expectedPrice = driver.findElement(By.cssSelector(".special-item [href*='old-together'] img+span")).getText();
+        expectedName = driver.findElement(By.cssSelector("#special-items > div:nth-child(2) > h4 > a")).getText();
+        expectedName = expectedName.substring(expectedName.indexOf(""));
         expectedPrice = expectedPrice.substring(expectedPrice.indexOf("$") + 1).trim();
 
         driver.findElement(By.cssSelector("[href='#et-offer-post-27']")).click();
@@ -40,6 +41,7 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
         String actualPrice = driver.findElement(By.cssSelector("[id='fancybox-content'] form span")).getText();
         actualPrice = actualPrice.substring(actualPrice.indexOf("$") + 1).trim();
         //System.out.println("Expected Price " + expectedPrice + "\nActual price " + actualPrice);
+        // System.out.println("Expected Name " + expectedName + "\nActual name " + actualName);
         Assert.assertEquals(expectedPrice, actualPrice, "Price don't match");
         wait.until(ExpectedConditions.elementToBeClickable(By.id("addToCart_5_2")));
     }
@@ -47,42 +49,41 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
 
     @Test(dependsOnMethods = "testAddToCartSecondItem")
     public void CartPage() {
+        try {
 
-        driver.findElement(By.id("addToCart_5_2")).click();
+            driver.findElement(By.id("addToCart_5_2")).click();
+            Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
+                    "Incorrect URL after click on 'Add to Cart' button");
+        } catch (Exception e) {
+            System.out.println("ErrorButton add To Cart");
+        }
 
-        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                "Incorrect URL after click on 'Add to Cart' button");
-
-      /*  String actualNameInCart = driver.findElement(By.cssSelector("#viewCartTable > tbody > tr:nth-child(1) > td:nth-child(1)")).getText();
+        String actualNameInCart = driver.findElement(By.cssSelector("#viewCartTable > tbody > tr:nth-child(1) > td:nth-child(1)")).getText();
         String actualPriceInCart = driver.findElement(By.cssSelector("#viewCartTable > tbody > tr:nth-child(1) > td:nth-child(3)")).getText();
-        actualNameInCart.substring(actualNameInCart.indexOf(""));
-        actualPriceInCart.substring(actualNameInCart.indexOf("$") + 1).trim();*/
+        actualNameInCart = actualNameInCart.substring(actualNameInCart.indexOf(""));
+        actualPriceInCart = actualPriceInCart.substring(actualPriceInCart.indexOf("$") + 1);
+        //System.out.println("Expected Price in Cart " + actualPriceInCart + "\nActual price " + expectedPrice);
+        //System.out.println("Expected Name in Cart " + actualNameInCart + "\nActual Name " + expectedName);
+        Assert.assertEquals(expectedName, actualNameInCart, "Incorrect name in Cart ");
+        Assert.assertEquals(expectedPrice, actualPriceInCart, "Incorrect Price in Cart");
 
-
-
-
-
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("continueShopping")));
     }
 
-   /* @Test(dependsOnMethods = "testAddToCartSecondItem")
+    @Test(dependsOnMethods = "CartPage")
     public void testContinueShopping() {
 
-        waitFor(1000);
-        driver.findElement(By.cssSelector(".Cart66CartContinueShopping")).click();
+
+        driver.findElement(By.id("continueShopping")).click();
         Assert.assertEquals(driver.getCurrentUrl(), homePage, "Redirect to incorrect page.");
-    }*/
+        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/");
+    }
 
     @AfterClass
     public void tearDown() {
         driver.close();
     }
 
-    private void waitFor(int milliseconds) {
-        try {
-            Thread.sleep(milliseconds);
-        } catch (Exception e) {
-
-        }
-    }
 }
+
 
