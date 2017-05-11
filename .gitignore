@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .classpath
 .project
 .settings
@@ -5,3 +6,9 @@
 bin
 /test-output/
 /target/
+=======
+/target/
+/test-output/
+.settings
+.settings/
+>>>>>>> refs/remotes/origin/master
