@@ -40,7 +40,15 @@ public class FourthTCTypeComment {
         driver.findElement(By.id("submit")).click();
 
     }
-    @Test(dependsOnMethods = "openItemAndFillFields")
+   /* @Test(dependsOnMethods = "openItemAndFillFields")
+    public void ifUserDuplicatesInfo() {
+        String errorMessageAboputTheSameUser = driver.findElement(By.id("error-page")).getText();
+        Assert.assertEquals(errorMessageAboputTheSameUser, "Duplicate comment detected; it looks as though you’ve already said that!",
+                "IncorrectMessage");
+    }*/
+
+
+    @Test (dependsOnMethods = "openItemAndFillFields")
     public void addSecondCommentWithoutInfo(){
 
         driver.findElement(By.id("submit")).click();
