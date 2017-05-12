@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,17 +27,29 @@ public class FourthTCTypeComment {
     public void openItemAndFillFields(){
         driver.findElement(By.cssSelector("#slides > div:nth-child(1) > div.featured-image")).click();
 
-        driver.findElement(By.id("author")).sendKeys("John");
+        driver.findElement(By.id("author")).sendKeys("Pickles1");
 
-        driver.findElement(By.id("email")).sendKeys("test@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("test12@gmail.com");
 
-        driver.findElement(By.id("url")).sendKeys("www.comment.com");
+        driver.findElement(By.id("url")).sendKeys("www.comment13.com");
 
         driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[8]"))).click();
 
         driver.findElement((By.id("comment"))).sendKeys("This is my first comment and I agitated =)))");
 
         driver.findElement(By.id("submit")).click();
+
+    }
+    @Test(dependsOnMethods = "openItemAndFillFields")
+    public void addSecondCommentWithoutInfo(){
+
+        driver.findElement(By.id("submit")).click();
+
+        String errorMessage = driver.findElement(By.id("error-page")).getText();
+
+        System.out.println(errorMessage);
+
+        Assert.assertEquals(errorMessage, "ERROR: please type a comment.", "Incorrect message or Another Error");
 
     }
 

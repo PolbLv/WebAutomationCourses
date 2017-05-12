@@ -32,6 +32,7 @@ public class ThirdTCAddToCartAllItems {
 
         driver.findElement(By.cssSelector("[href='#et-offer-post-30']")).click();
         WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+        Assert.assertTrue(addToCartPopup.isDisplayed());
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("addToCart_6_2")));
     }
@@ -57,6 +58,7 @@ public class ThirdTCAddToCartAllItems {
         waitFor(2000);
         driver.findElement(By.cssSelector("[href='#et-offer-post-27']")).click();
         WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+        Assert.assertTrue(addToCartPopup.isDisplayed());
 
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("addToCart_5_2")));
     }
@@ -79,6 +81,7 @@ public class ThirdTCAddToCartAllItems {
         waitFor(2000);
         driver.findElement(By.cssSelector("[href='#et-offer-post-24']")).click();
         WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+        Assert.assertTrue(addToCartPopup.isDisplayed());
     }
     @Test(dependsOnMethods = "addToCartThirdItem")
     public void testAddToCartInPopUpThirdItem(){
@@ -98,6 +101,7 @@ public class ThirdTCAddToCartAllItems {
         waitFor(2000);
         driver.findElement(By.cssSelector("[href='#et-offer-post-21']")).click();
         WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+        Assert.assertTrue(addToCartPopup.isDisplayed());
     }
     @Test(dependsOnMethods = "addCartFourthItem")
     public void testAddToCartInPopUpFourthItem(){
@@ -117,6 +121,7 @@ public class ThirdTCAddToCartAllItems {
         waitFor(2000);
         driver.findElement(By.cssSelector("[href='#et-offer-post-18']")).click();
         WebElement addToCartPopup = driver.findElement(By.id("fancybox-wrap"));
+        Assert.assertTrue(addToCartPopup.isDisplayed());
     }
     @Test(dependsOnMethods = "addToCartFifthItem")
     public void testAddToCartInPopupFifthItem(){
