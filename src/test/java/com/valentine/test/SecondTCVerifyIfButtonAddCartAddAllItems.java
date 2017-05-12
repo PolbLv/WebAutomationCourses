@@ -52,8 +52,7 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
         try {
 
             driver.findElement(By.id("addToCart_5_2")).click();
-            Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                    "Incorrect URL after click on 'Add to Cart' button");
+            Assert.assertEquals(driver.getCurrentUrl(), homePage, "Incorrect URL after click on 'Add to Cart' button");
 
         } catch (Exception e) {
             System.out.println("ErrorButton add To Cart");
