@@ -27,13 +27,13 @@ public class FourthTCTypeComment {
     public void openItemAndFillFields(){
         driver.findElement(By.cssSelector("#slides > div:nth-child(1) > div.featured-image")).click();
 
-        driver.findElement(By.id("author")).sendKeys("Pickles1");
+        driver.findElement(By.id("author")).sendKeys("Pickles13");
 
-        driver.findElement(By.id("email")).sendKeys("test12@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("test212@gmail.com");
 
-        driver.findElement(By.id("url")).sendKeys("www.comment13.com");
+        driver.findElement(By.id("url")).sendKeys("www.comment113.com");
 
-        driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[8]"))).click();
+        driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[2]"))).click();
 
         driver.findElement((By.id("comment"))).sendKeys("This is my first comment and I agitated =)))");
 
