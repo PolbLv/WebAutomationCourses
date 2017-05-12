@@ -24,22 +24,19 @@ public class FourthTCTypeComment {
 
     @Test
     public void openItemAndFillFields(){
-        //wait.until(ExpectedConditions.elementToBeClickable(By.id("submit")));
-
         driver.findElement(By.cssSelector("#slides > div:nth-child(1) > div.featured-image")).click();
-        //waitFor(1000);
+
         driver.findElement(By.id("author")).sendKeys("John");
-        //waitFor(1000);
+
         driver.findElement(By.id("email")).sendKeys("test@gmail.com");
-        //waitFor(1000);
+
         driver.findElement(By.id("url")).sendKeys("www.comment.com");
-        //waitFor(1000);
+
         driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[8]"))).click();
-        //waitFor(1000);
+
         driver.findElement((By.id("comment"))).sendKeys("This is my first comment and I agitated =)))");
-        //waitFor(1000);
+
         driver.findElement(By.id("submit")).click();
-        //waitFor(3000);
 
     }
 
