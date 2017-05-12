@@ -1,6 +1,5 @@
 package com.valentine.test;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class ThirdTCAddToCartAllItems {
     String homePage = "http://awful-valentine.com/";
+    String cartPage = "http://awful-valentine.com/store/cart/";
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -40,8 +40,8 @@ public class ThirdTCAddToCartAllItems {
     public void testAddToCartInPopUpFirstItem(){
         waitFor(2000);
         driver.findElement(By.id("addToCart_6_2")).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                "Incorrect URL after click on 'Add to Cart' button");
+        Assert.assertEquals(driver.getCurrentUrl(), cartPage, "Incorrect URL after click on " +
+                "'Add to Cart First Item button");
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("continueShopping")));
 
     }
@@ -64,8 +64,8 @@ public class ThirdTCAddToCartAllItems {
     public void testAddToCartInPopUpSecondItem(){
         waitFor(2000);
         driver.findElement(By.id("addToCart_5_2")).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                "Incorrect URL after click on 'Add to Cart' button");
+        Assert.assertEquals(driver.getCurrentUrl(), cartPage, "Incorrect URL after click on " +
+                "'Add to Cart Second Item' button");
         //wait.until(ExpectedConditions.elementToBeClickable(By.id("continueShopping")));
     }
     @Test(dependsOnMethods = "testAddToCartInPopUpSecondItem")
@@ -84,8 +84,8 @@ public class ThirdTCAddToCartAllItems {
     public void testAddToCartInPopUpThirdItem(){
         waitFor(2000);
         driver.findElement(By.id("addToCart_4_2")).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                "Incorrect URL after click on 'Add to Cart' button");
+        Assert.assertEquals(driver.getCurrentUrl(), cartPage, "Incorrect URL after click on " +
+                "'Add to Cart Third Item' button");
     }
     @Test(dependsOnMethods = "testAddToCartInPopUpThirdItem")
     public void cartPageClickContinueShoppingWithThreeItems(){
@@ -103,8 +103,8 @@ public class ThirdTCAddToCartAllItems {
     public void testAddToCartInPopUpFourthItem(){
         waitFor(2000);
         driver.findElement(By.id("addToCart_3")).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                "Incorrect URL after click on 'Add to Cart' button");
+        Assert.assertEquals(driver.getCurrentUrl(), cartPage, "Incorrect URL after click on " +
+                "'Add to Cart Fourth Item' button");
     }
     @Test(dependsOnMethods = "testAddToCartInPopUpFourthItem")
     public void cartPageClickContinueShoppingWithFourItems(){
@@ -122,8 +122,8 @@ public class ThirdTCAddToCartAllItems {
     public void testAddToCartInPopupFifthItem(){
         waitFor(2000);
         driver.findElement(By.id("addToCart_1")).click();
-        Assert.assertEquals(driver.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
-                "Incorrect URL after click on 'Add to Cart' button");
+        Assert.assertEquals(driver.getCurrentUrl(), cartPage, "Incorrect URL after click on " +
+                "'Add to Cart Fifth Item' button");
     }
     @Test(dependsOnMethods = "testAddToCartInPopupFifthItem")
     public void cartPageClickContinueShoppingWithFiveItems(){
