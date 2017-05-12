@@ -42,8 +42,8 @@ public class FourthTCTypeComment {
     }
    /* @Test(dependsOnMethods = "openItemAndFillFields")
     public void ifUserDuplicatesInfo() {
-        String errorMessageAboputTheSameUser = driver.findElement(By.id("error-page")).getText();
-        Assert.assertEquals(errorMessageAboputTheSameUser, "Duplicate comment detected; it looks as though you’ve already said that!",
+        String errorMessageAboutTheSameUser = driver.findElement(By.id("error-page")).getText();
+        Assert.assertEquals(errorMessageAboutTheSameUser, "Duplicate comment detected; it looks as though you’ve already said that!",
                 "IncorrectMessage");
     }*/
 
