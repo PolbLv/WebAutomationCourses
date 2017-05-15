@@ -4,8 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.qatools.allure.annotations.Attachment;
-import ru.yandex.qatools.allure.annotations.Step;
+
 
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class HomePage {
      *
      * @param position 1-based position in the list
      */
-    @Step("Click 'Add to Cart' button on a special offer number {0}")
+    
     public HomePage clickAddToCartOnSpecialOffer(int position) {
         WebElement specialOffer = specialOffers().get(position - 1);
         specialOffer.findElement(By.cssSelector(".add-to-cart")).click();
@@ -48,8 +47,7 @@ public class HomePage {
         return driver.findElements(By.cssSelector(".special-item"));
     }
 
-    @Step("Click 'Cart' button on a recent product number {0}")
-    public HomePage clickCartOnRecentProduct(int position) {
+        public HomePage clickCartOnRecentProduct(int position) {
         WebElement recentProduct = recentProducts().get(position - 1);
         recentProduct.findElement(By.cssSelector(".add-to-cart")).click();
         return this;
@@ -59,18 +57,17 @@ public class HomePage {
         return driver.findElements(By.cssSelector(".main-product"));
     }
 
-    @Step("Check if 'Add to Cart' Popup is displayed")
+    
     public boolean isAddToCartPopupShown() {
         return addToCartPopup().isDisplayed();
     }
 
-    @Step("Read product title on popup")
-    @Attachment("Product title")
+    
     public String getPopupProductTitle() {
         return addToCartPopup().findElement(By.cssSelector(".et_popup_title")).getText();
     }
 
-    @Step("Click 'Add to Cart' button on popup")
+    
     public ShoppingCartPage clickAddToCartButtonOnPopup() {
         WebDriverWait driverWait = new WebDriverWait(driver, 10);
         driverWait.until(visibilityOfElementLocated(By.cssSelector("#fancybox-wrap [value='Add to Cart']")));
@@ -83,8 +80,6 @@ public class HomePage {
         return driver.findElement(By.id("fancybox-wrap"));
     }
 
-    @Step("Read current URL")
-    @Attachment("URL")
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }

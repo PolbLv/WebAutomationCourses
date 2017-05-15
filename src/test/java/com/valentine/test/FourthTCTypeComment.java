@@ -17,7 +17,7 @@ public class FourthTCTypeComment {
 
     @BeforeClass
     public void setup(){
-        System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
+        System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
         driver = new ChromeDriver();
         driver.get(homePage);
         wait = new WebDriverWait(driver, 5);
@@ -60,8 +60,6 @@ public class FourthTCTypeComment {
         Assert.assertEquals(errorMessage, "ERROR: please type a comment.", "Incorrect message or Another Error");
 
     }
-
-
 
     @AfterClass
     public void tearDown() {

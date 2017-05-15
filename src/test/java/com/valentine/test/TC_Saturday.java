@@ -25,7 +25,7 @@ public class TC_Saturday {
 
     }
 
-        @Test(dependsOnMethods = "testTheAddCartButtonOpensPopup")
+        @Test(dependsOnMethods = "testAddTheCartButtonOpensPopup")
         public void testAddToCartButtonOnPopupRedirectsToCartPage() {
             onShoppingCartPage = onHomePage.clickAddToCartButtonOnPopup();
             assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/cart/",

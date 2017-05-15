@@ -12,7 +12,7 @@ public class TCOneVerifyIfButtonAddToCartWorks {
     @Test
     public static void testAddButtonWorks() {
 
-        System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
+        System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
         WebDriver driver = new ChromeDriver();
 
         WebDriverWait wait = new WebDriverWait(driver, 5);
