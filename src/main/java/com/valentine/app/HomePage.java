@@ -35,13 +35,19 @@ public class HomePage {
      * Clicks on 'Add to Cart' button on a special offer found by {@code index}
      *
      * @param position 1-based position in the list
-     */
-    
+     */ 
     public HomePage clickAddToCartOnSpecialOffer(int position) {
         WebElement specialOffer = specialOffers().get(position - 1);
         specialOffer.findElement(By.cssSelector(".add-to-cart")).click();
         return this;
     }
+    
+    public HomePage clickMoreInfoOnSpecialOffer(int pos) {
+    	WebElement specialOfferInfo = specialOffers().get(pos -1);
+    	specialOfferInfo.findElement(By.cssSelector(".more-info")).click();
+		return this;
+		
+	}
 
     private List<WebElement> specialOffers() {
         return driver.findElements(By.cssSelector(".special-item"));
