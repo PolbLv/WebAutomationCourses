@@ -21,7 +21,7 @@ public class SecondTCVerifyIfButtonAddCartAddAllItems {
 
     @Test
     public void testAddToCartSecondItem() {
-        System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
+        System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 8);
         driver.get(homePage);

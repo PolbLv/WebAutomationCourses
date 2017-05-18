@@ -25,27 +25,27 @@ public class FourthTCTypeComment {
 
     @Test
     public void openItemAndFillFields(){
-        driver.findElement(By.cssSelector("#slides > div:nth-child(1) > div.featured-image")).click();
+        driver.findElement(By.cssSelector("#slides > div:nth-child(2) > div.featured-image")).click();
 
-        driver.findElement(By.id("author")).sendKeys("Pickles13");
+        driver.findElement(By.id("author")).sendKeys("FHKDASd");
 
-        driver.findElement(By.id("email")).sendKeys("test212@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("fsDA@gmail.com");
 
-        driver.findElement(By.id("url")).sendKeys("www.comment113.com");
+        driver.findElement(By.id("url")).sendKeys("www.comment153865.com");
 
-        driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[2]"))).click();
+        driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[4]"))).click();
 
         driver.findElement((By.id("comment"))).sendKeys("This is my first comment and I agitated =)))");
 
         driver.findElement(By.id("submit")).click();
 
     }
-   /* @Test(dependsOnMethods = "openItemAndFillFields")
+    @Test(dependsOnMethods = "openItemAndFillFields")
     public void ifUserDuplicatesInfo() {
         String errorMessageAboutTheSameUser = driver.findElement(By.id("error-page")).getText();
         Assert.assertEquals(errorMessageAboutTheSameUser, "Duplicate comment detected; it looks as though you’ve already said that!",
                 "IncorrectMessage");
-    }*/
+    }
 
 
     @Test (dependsOnMethods = "openItemAndFillFields")
@@ -58,7 +58,6 @@ public class FourthTCTypeComment {
         System.out.println(errorMessage);
 
         Assert.assertEquals(errorMessage, "ERROR: please type a comment.", "Incorrect message or Another Error");
-
     }
 
     @AfterClass

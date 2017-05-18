@@ -21,7 +21,7 @@ public class AddProductsInCart {
 
     @Test
     public void testCartButtonOpensPopup() {
-        System.setProperty("webdriver.chrome.driver", "//home//likewise-open//LVIVSOFT//spolyakov//chromedriver");
+        System.setProperty("webdriver.chrome.driver", "//Users//Serhiy//ChromeDriver//chromedriver");
         driver = new ChromeDriver();
         driver.get(mainPage);
 
