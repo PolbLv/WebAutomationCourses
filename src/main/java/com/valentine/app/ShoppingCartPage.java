@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import ru.yandex.qatools.allure.annotations.Attachment;
+import ru.yandex.qatools.allure.annotations.Step;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.urlContains;
 
 public class ShoppingCartPage {
@@ -23,16 +26,18 @@ public class ShoppingCartPage {
 		new WebDriverWait(driver, 10).until(urlContains("cart"));
 		PageFactory.initElements(driver, this);
 	}
-
+	@Step
 	public HomePage clickContinueShoppingButton() {
 		continueShoppingButton.click();
 		return new HomePage(driver);
 	}
-
+	@Step("Read current URL")
+	@Attachment("URL")	
 	public String getCurrentUrl() {
 		return driver.getCurrentUrl();
 	}
-
+	@Step("Read Summary")
+	@Attachment("Summary")
 	public String getSummary() {
 		return summaryElement.getText();
 	}
