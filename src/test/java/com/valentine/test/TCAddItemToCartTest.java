@@ -27,18 +27,21 @@ public class TCAddItemToCartTest {
 		testItem = onHomePage.getSpecialOffer(randomIndex);
 
 		onHomePage.clickAddToCartOnSpecialOffer(randomIndex);
-		
-		//onHomePage.clickAddToCartOnSpecialOffer(testItem);
-		
+
+		// onHomePage.clickAddToCartOnSpecialOffer(testItem);
+
 		assertTrue(onHomePage.isAddToCartPopupShown(), "'Add to cart' Popup did  not appear.");
 
-//		String productTitle = onHomePage.getPopupProductTitle();
-//		double productPrice = onHomePage.getPopupProductPrice();
-//		assertEquals(productTitle, testItem.getTitle(), "Incorrect product tittle on 'Add to Cart' popup");
-//		assertEquals(productPrice, testItem.getUnitPrice(), "Incorrect product price on 'Add to Cart' popup");
-		
-//		assertEquals(onHomePage.getProductInfoFromPopup(), testItem, "incorrect data on popup");
-		productsShouldBeEqual(onHomePage.getProductInfoFromPopup(), testItem);
+		// String productTitle = onHomePage.getPopupProductTitle();
+		// double productPrice = onHomePage.getPopupProductPrice();
+		// assertEquals(productTitle, testItem.getTitle(), "Incorrect product
+		// tittle on 'Add to Cart' popup");
+		// assertEquals(productPrice, testItem.getUnitPrice(), "Incorrect
+		// product price on 'Add to Cart' popup");
+
+		assertEquals(onHomePage.getProductInfoFromPopup(), testItem, "incorrect data on popup");
+		// productsShouldBeEqual(onHomePage.getProductInfoFromPopup(),
+		// testItem);
 	}
 
 	@Test(dependsOnMethods = "testAddTheCartButtonOpensPopup")
@@ -47,22 +50,24 @@ public class TCAddItemToCartTest {
 		assertEquals(onShoppingCartPage.getCurrentUrl(), "http://awful-valentine.com/store/cart/",
 				"Incorrect URL after click on 'Add to Cart' button");
 	}
+
 	@Step("Product details on Popup should be equal to product details on selected item")
-	private void productsShouldBeEqual(ProductDataModel actual, ProductDataModel expected){
+	private void productsShouldBeEqual(ProductDataModel actual, ProductDataModel expected) {
 		String message = "";
-		
-		if(!actual.getTitle().equals(expected.getTitle())){
+
+		if (!actual.getTitle().equals(expected.getTitle())) {
 			message = message.concat("Expected product title: " + expected.getTitle());
-			message= message.concat("\nActual product title; " + actual.getTitle());
+			message = message.concat("\nActual product title; " + actual.getTitle());
 		}
-		if(actual.getUnitPrice() != expected.getUnitPrice()){
+		if (actual.getUnitPrice() != expected.getUnitPrice()) {
 			message = message.concat("\nExpected product title: " + expected.getUnitPrice());
 			message = message.concat("\nActual product title; " + actual.getUnitPrice());
 		}
-		if (message.equals("")){
+		if (message.equals("")) {
 			throw new AssertionError(message);
 		}
 	}
+
 	@AfterClass
 	public void tearDown() {
 		AwfulValentine.close();
