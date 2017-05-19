@@ -16,24 +16,25 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 public class HomePage {
 
-	@FindBy(css =".main-product")
+	@FindBy(css = ".main-product")
 	private List<WebElement> recentProducts;
-	
-	@FindBy(css =".special-item")
+
+	@FindBy(css = ".special-item")
 	private List<WebElement> specialOffers;
-	
-	@FindBy(id ="fancybox-wrap")
+
+	@FindBy(id = "fancybox-wrap")
 	private WebElement addToCartPopup;
-	
+
 	private WebDriver driver;
-	
-	Faker faker = new Faker();
+
+	// Faker faker = new Faker();
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		new WebDriverWait(driver, 10).until(urlToBe("http://awful-valentine.com/"));
 		PageFactory.initElements(driver, this);
 	}
+
 	public ShoppingCartPage addToCartSpecialOffer(int position) {
 		clickAddToCartOnSpecialOffer(position);
 		clickAddToCartButtonOnPopup();
@@ -63,9 +64,9 @@ public class HomePage {
 		return this;
 	}
 
-//	private List<WebElement> specialOffers() {
-//		return driver.findElements(By.cssSelector(".special-item"));
-//	}
+	// private List<WebElement> specialOffers() {
+	// return driver.findElements(By.cssSelector(".special-item"));
+	// }
 
 	public HomePage clickCartOnRecentProduct(int position) {
 		WebElement recentProduct = recentProducts.get(position - 1);
@@ -73,9 +74,9 @@ public class HomePage {
 		return this;
 	}
 
-//	private List<WebElement> recentProducts() {
-//		return driver.findElements(By.cssSelector(".main-product"));
-//	}
+	// private List<WebElement> recentProducts() {
+	// return driver.findElements(By.cssSelector(".main-product"));
+	// }
 
 	public boolean isAddToCartPopupShown() {
 		return addToCartPopup.isDisplayed();
@@ -93,35 +94,39 @@ public class HomePage {
 		return new ShoppingCartPage(driver);
 	}
 
-//	private WebElement addToCartPopup() {
-//		return driver.findElement(By.id("fancybox-wrap"));
-//	}
+	// private WebElement addToCartPopup() {
+	// return driver.findElement(By.id("fancybox-wrap"));
+	// }
 
 	public String getCurrentUrl() {
 		return driver.getCurrentUrl();
 	}
-	
-	public void fillNameField(String text){
+
+	public void fillNameField(String text) {
 		driver.findElement(By.id("author")).sendKeys(text);
-		  
+
 	}
+
 	public void fillEmailField(String text) {
 		driver.findElement(By.id("email")).sendKeys(text);
-		
+
 	}
+
 	public void fillWebSiteField(String text) {
 		driver.findElement(By.id("url")).sendKeys(text);
-		
+
 	}
-//	public void fakerName(String text){
-//		String firstName = faker.name().firstName(); // Emory
-//	}		
+
+	// public void fakerName(String text){
+	// String firstName = faker.name().firstName(); // Emory
+	// }
 	public void clickToRatingStars() {
 		driver.findElement((By.xpath("//*[@id='et-rating']/div/span/div[4]"))).click();
-		
+
 	}
+
 	public void clickSubmitButton() {
 		driver.findElement(By.id("submit")).click();
-		
+
 	}
 }
